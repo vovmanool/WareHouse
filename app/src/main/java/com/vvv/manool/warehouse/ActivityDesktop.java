@@ -45,7 +45,7 @@ public class ActivityDesktop extends AppCompatActivity {
 
     }
 
-    
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_desktop,menu);
