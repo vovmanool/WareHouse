@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context="com.vvv.manool.warehouse.ActivityDesktop">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/pic_to_sku"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitStart"
+        android:visibility="visible"
+        app:srcCompat="@drawable/pic_to_order"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitStart"
+        android:visibility="visible"
+        app:srcCompat="@drawable/pic_to_scan"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="41dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ic_sync_black_24dp"
+        tools:layout_editor_absoluteX="343dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Каталог продуктов"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Заказы"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Проверить ШК"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="400dp" />
 </android.support.constraint.ConstraintLayout>
