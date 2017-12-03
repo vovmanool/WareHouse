@@ -3,13 +3,16 @@
 
 
     <item
-        android:id="@+id/item_sync"
+        android:id="@+id/menu_item_sync"
         android:title="Синхронизировать" />
     <item
-        android:id="@+id/item_pref"
+        android:id="@+id/menu_item_pref"
         android:title="Настройки" />
     <item
-        android:id="@+id/item_about"
+        android:id="@+id/menu_item_about"
         android:title="О программе" />
+    <item
+        android:id="@+id/menu_item_exit"
+        android:title="Выход" />
 
 </menu>

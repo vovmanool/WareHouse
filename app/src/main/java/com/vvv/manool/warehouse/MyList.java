@@ -5,8 +5,8 @@ package com.vvv.manool.warehouse;
  */
 
 public class MyList {
-    public long id;
-    public long art;
-    public String name;
-    public String note;
+    public  long id;
+    public  long art;
+    public  String name;
+    public  String note;
 }
