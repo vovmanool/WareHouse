@@ -7,13 +7,14 @@
     tools:context="com.vvv.manool.warehouse.ActivityList">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleViewList"
         android:layout_width="match_parent"
-        android:layout_height="466dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_height="467dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"

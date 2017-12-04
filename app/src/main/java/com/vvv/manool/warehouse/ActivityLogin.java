@@ -54,9 +54,9 @@ public class ActivityLogin extends AppCompatActivity {
                 if (isValidEmail(ed_email.getText().toString())){
                     //ставлю ЛАйк имеджа для емайла
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        img_view_l_email.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dpgray, getApplicationContext().getTheme()));
+                        img_view_l_email.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dp, getApplicationContext().getTheme()));
                     } else {
-                        img_view_l_email.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dpgray));
+                        img_view_l_email.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dp));
                     }
                     //если и с пасс все ок, то отображаю кнопки
                     if (isValidPass(ed_pass.getText().toString())) {
@@ -86,9 +86,9 @@ public class ActivityLogin extends AppCompatActivity {
                 //если с Пасс все ок то Лайкаю Пасс
                 if (isValidPass(ed_pass.getText().toString())){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        img_view_l_pass.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dpgray, getApplicationContext().getTheme()));
+                        img_view_l_pass.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dp, getApplicationContext().getTheme()));
                     } else {
-                        img_view_l_pass.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dpgray));
+                        img_view_l_pass.setImageDrawable(getResources().getDrawable(R.drawable.ic_thumb_up_black_24dp));
                     }//Если с емайлом ок - отображаю кнопки
                     if ( isValidEmail(ed_email.getText().toString())) {
                         btn_signIn.setEnabled(true);

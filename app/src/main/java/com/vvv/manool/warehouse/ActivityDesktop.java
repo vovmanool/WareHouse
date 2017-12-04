@@ -51,7 +51,7 @@ public class ActivityDesktop extends AppCompatActivity {
                 myRef.setValue("Hello, World!");
            }
         });
-        
+
         img_button_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
