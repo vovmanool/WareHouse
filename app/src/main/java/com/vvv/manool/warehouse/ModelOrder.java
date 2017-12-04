@@ -4,15 +4,15 @@ package com.vvv.manool.warehouse;
  * Created by tb_dvl on 03.12.2017.
  */
 
-public class ListModel {
+public class ModelOrder {
     String key;
     int orderName,orderTotal,orderGet;
 
-    public ListModel(){
+    public ModelOrder(){
 
     }
 
-    public ListModel(String key, int orderName, int orderTotal, int orderGet) {
+    public ModelOrder(String key, int orderName, int orderTotal, int orderGet) {
         this.key = key;
         this.orderName = orderName;
         this.orderTotal = orderTotal;

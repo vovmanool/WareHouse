@@ -1,14 +1,10 @@
 package com.vvv.manool.warehouse;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,14 +15,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityList extends AppCompatActivity {
+public class ActivityOrders extends AppCompatActivity {
 
 private RecyclerView recyclerView;
-private List<ListModel> resultList;
-private MyListRecycleAdaper adapterList;
-
+private List<ModelOrder> resultList;
+private ActivityOrdersAdaper adapterList;
 private FirebaseDatabase database;
-private DatabaseReference reference;
+private DatabaseReference ref_orders;
 
 
     @Override
@@ -35,9 +30,10 @@ private DatabaseReference reference;
         setContentView(R.layout.activity_list);
 
         database=FirebaseDatabase.getInstance();
-        reference=database.getReference("orders");
+        ref_orders =database.getReference("orders");
 
         resultList=new ArrayList<>();
+
         recyclerView=findViewById(R.id.recycleViewList);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager lin=new LinearLayoutManager(this);
@@ -46,7 +42,7 @@ private DatabaseReference reference;
 
 //        createRes();
 
-        adapterList=new MyListRecycleAdaper(resultList);
+        adapterList=new ActivityOrdersAdaper(resultList);
         recyclerView.setAdapter(adapterList);
 
         updateList();
@@ -60,23 +56,23 @@ private DatabaseReference reference;
 
 //    private void createRes(){
 //        for (int i = 0; i < 10; i++) {
-//            resultList.add(new ListModel("123","5","0",""));
+//            resultList.add(new ModelOrder("123","5","0",""));
 //        }
 //
 //    }
 
     private void updateList(){
-        reference.addChildEventListener(new ChildEventListener() {
+        ref_orders.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                resultList.add(dataSnapshot.getValue(ListModel.class));
+                resultList.add(dataSnapshot.getValue(ModelOrder.class));
                 adapterList.notifyDataSetChanged();
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                ListModel model = dataSnapshot.getValue(ListModel.class);
+                ModelOrder model = dataSnapshot.getValue(ModelOrder.class);
                 int index=getItemIndex(model);
                 resultList.set(index,model);
                 adapterList.notifyItemChanged(index);
@@ -84,7 +80,7 @@ private DatabaseReference reference;
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                ListModel model = dataSnapshot.getValue(ListModel.class);
+                ModelOrder model = dataSnapshot.getValue(ModelOrder.class);
                 int index=getItemIndex(model);
                 resultList.remove(index);
                 adapterList.notifyItemRemoved(index);
@@ -103,7 +99,9 @@ private DatabaseReference reference;
 
     }
 
-    private int getItemIndex(ListModel list){
+
+
+    private int getItemIndex(ModelOrder list){
         int index = -1;
         for (int i = 0; i <resultList.size(); i++) {
             if(resultList.get(i).key.equals(list.key)){
@@ -115,7 +113,7 @@ private DatabaseReference reference;
     }
 
     private void removeOrder(int position){
-        reference.child(resultList.get(position).key).removeValue();
+        ref_orders.child(resultList.get(position).key).removeValue();
 
     }
 

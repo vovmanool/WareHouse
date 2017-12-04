@@ -1,5 +1,6 @@
 package com.vvv.manool.warehouse;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -10,23 +11,23 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class MyListRecycleAdaper extends RecyclerView.Adapter<MyListRecycleAdaper.ListViewHolder> {
+public class ActivityOrdersAdaper extends RecyclerView.Adapter<ActivityOrdersAdaper.ListViewHolder> {
 
-    private List<ListModel> list;
+    private List<ModelOrder> orders;
 
-    public MyListRecycleAdaper(List<ListModel> list) {
-        this.list = list;
+    public ActivityOrdersAdaper(List<ModelOrder> list) {
+        this.orders = list;
     }
 
     @Override
-    public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_list,parent,false));
+    public ActivityOrdersAdaper.ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ListViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_order,parent,false));
     }
 
     @Override
     public void onBindViewHolder(final ListViewHolder holder, int position) {
 
-        ListModel order = list.get(position);
+        ModelOrder order = orders.get(position);
         holder.tvListOrder.setText(order.orderName+"");
         holder.tvListTotal.setText(order.orderTotal+"");
         holder.tvListGet.setText(order.orderGet+"");
@@ -38,11 +39,19 @@ public class MyListRecycleAdaper extends RecyclerView.Adapter<MyListRecycleAdape
 
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),ActivitySkus.class);
+                intent.putExtra("ORDER_KEY",orders.get(holder.getAdapterPosition()).key);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return orders.size();
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder{

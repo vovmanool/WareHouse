@@ -1,6 +1,5 @@
 package com.vvv.manool.warehouse;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +54,7 @@ public class ActivityDesktop extends AppCompatActivity {
         img_button_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getBaseContext(),ActivityList.class);
+                Intent intent=new Intent(getBaseContext(),ActivityOrders.class);
                 startActivity(intent); //  значит что от активити ничего не ожидаем
             }
         });

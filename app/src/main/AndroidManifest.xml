@@ -27,8 +27,8 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityList" />
-        <activity android:name=".ActivitySku" />
+        <activity android:name=".ActivityOrders" />
+        <activity android:name=".ActivitySkus" />
         <activity android:name=".ActivityScan" />
         <activity android:name=".ActivityCatalog" />
 
