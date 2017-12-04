@@ -63,8 +63,8 @@ public class ActivityDesktop extends AppCompatActivity {
         img_button_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getBaseContext(),ActivityScan.class);
-                startActivity(intent); //  значит что от активити ничего не ожидаем
+                //Intent intent=new Intent(getBaseContext(),ActivityScan.class);
+                //startActivity(intent); //  значит что от активити ничего не ожидаем
             }
         });
 
