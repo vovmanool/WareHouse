@@ -145,6 +145,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
+        Log.d(TAG, "onTouchEvent: _VOV");
         boolean b = scaleGestureDetector.onTouchEvent(e);
 
         boolean c = gestureDetector.onTouchEvent(e);
@@ -358,6 +359,7 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
         }
 
         if (best != null) {
+            Log.d(TAG, "onTap: вроде как нажал на читаемый баркод _VOV");
             Intent data = new Intent();
             data.putExtra(BarcodeObject, best);
             setResult(CommonStatusCodes.SUCCESS, data);
@@ -430,6 +432,16 @@ public final class BarcodeCaptureActivity extends AppCompatActivity implements B
 
     @Override
     public void onBarcodeDetected(Barcode barcode) {
-        //do something with barcode data returned
+        Log.d(TAG, "onBarcodeDetected: _VOV1"+barcode.rawValue);
+        onTap(1, 1);
+        //Toast.makeText(this, "Нашел", Toast.LENGTH_SHORT).show();
+
+        Log.d(TAG, "onTap: вроде как нажал на читаемый баркод _VOV");
+        Intent data = new Intent();
+        data.putExtra(BarcodeObject, barcode);
+        setResult(CommonStatusCodes.SUCCESS, data);
+        finish();
+
+
     }
 }

@@ -38,14 +38,7 @@ public class ActivitySkusAdapter extends RecyclerView.Adapter<ActivitySkusAdapte
         holder.tvSkuPlan.setText(sku.plan +"");
         holder.tvSkuFact.setText(sku.fact+"");
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(),ActivitySkus.class);
-                intent.putExtra("ORDER_KEY",holder.getAdapterPosition());
-                view.getContext().startActivity(intent);
-            }
-        });
+
     }
 
     @Override

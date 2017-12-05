@@ -30,13 +30,9 @@ public class ActivitySkus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sku);
 
-
-        database=FirebaseDatabase.getInstance();
         String data = getIntent().getExtras().getString("ORDER_KEY");
-        //Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
-
+        database=FirebaseDatabase.getInstance();
         ref_skus =database.getReference("skus");
-
 
         resultSkus=new ArrayList<>();
 

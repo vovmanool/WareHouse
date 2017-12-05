@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vvv.manool.warehouse.ui.camera.CameraSource;
 import com.vvv.manool.warehouse.ui.camera.CameraSourcePreview;
 
@@ -17,6 +23,9 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
 public class ActivityScanDesktop extends AppCompatActivity {
+
+    private FirebaseDatabase database;
+    private DatabaseReference ref_skus;
 
     private TextView tvScanBarcode,tvScanArt,tvScanName,tvScanPrice;
     private Switch swScanFlash;
@@ -29,9 +38,14 @@ public class ActivityScanDesktop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_desktop);
 
-        tvScanBarcode=findViewById(R.id.tv_asd_barcode);
+
+        database=FirebaseDatabase.getInstance();
+        ref_skus=database.getReference("skus");
+
+
+        tvScanBarcode = findViewById(R.id.tv_asd_barcode);
         tvScanArt=findViewById(R.id.tv_asd_art);
-        tvScanName=findViewById(R.id.tv_as_name);
+        tvScanName=findViewById(R.id.tv_asd_name);
         tvScanPrice=findViewById(R.id.tv_asd_price);
         swScanFlash=findViewById(R.id.sw_asd_flash);
         btnScanScan=findViewById(R.id.btn_asd_scan);
@@ -56,7 +70,34 @@ public class ActivityScanDesktop extends AppCompatActivity {
                 if (data != null) {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     //statusMessage.setText(R.string.barcode_success);
+
+
                     tvScanBarcode.setText(barcode.displayValue);
+                    ref_skus.orderByChild("barcode").equalTo(barcode.displayValue).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.getValue()!=null) {
+                                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                    tvScanArt.setText(child.getValue(ModelSku.class).art);
+                                    tvScanName.setText(child.getValue(ModelSku.class).name);
+                                }
+                            }   else {
+                                tvScanName.setText("Такого ШК нет в базе");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+
+
+
+
+
                     //Log.d(TAG, "Barcode read: " + barcode.displayValue);
                 } else {
                     tvScanBarcode.setText(R.string.barcode_failure);
