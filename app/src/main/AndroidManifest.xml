@@ -3,7 +3,7 @@
     package="com.vvv.manool.warehouse">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -17,22 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityLogin"/>
+        <activity android:name=".ActivityLogin" />
+        <activity android:name=".ActivityDesktop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-        <activity android:name=".ActivityDesktop" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity android:name=".ActivityOrders" />
         <activity android:name=".ActivitySkus" />
         <activity android:name=".ActivityScanDesktop" />
         <activity android:name=".ActivityCatalog" />
-        <activity android:name=".BarcodeCaptureActivity"
-            android:label="Read Barcode"/>
+        <activity
+            android:name=".BarcodeCaptureActivity"
+            android:label="Read Barcode" />
+        <activity android:name=".MainActivitybca"></activity>
     </application>
 
 </manifest>
