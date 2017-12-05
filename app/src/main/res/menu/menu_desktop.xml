@@ -2,15 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item
-        android:id="@+id/menu_item_sync"
-        android:title="Синхронизировать" />
-    <item
-        android:id="@+id/menu_item_pref"
-        android:title="Настройки" />
-    <item
-        android:id="@+id/menu_item_about"
-        android:title="О программе" />
+
+
     <item
         android:id="@+id/menu_item_exit"
         android:title="Выход" />

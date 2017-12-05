@@ -37,19 +37,10 @@ public class ActivityDesktop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desktop);
         database = FirebaseDatabase.getInstance();
-        ImageButton img_button_cat=findViewById(R.id.img_button_cat);
+        //ImageButton img_button_cat=findViewById(R.id.img_button_cat);
         ImageButton img_button_order=findViewById(R.id.img_button_order);
         ImageButton img_button_scan=findViewById(R.id.img_button_scan);
 
-        img_button_cat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // Intent intent=new Intent(getBaseContext(),ActivityCatalog.class);
-               // startActivity(intent); //  значит что от активити ничего не ожидаем
-                DatabaseReference myRef = database.getReference("ord_id");
-                myRef.setValue("Hello, World!");
-           }
-        });
 
         img_button_order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,15 +71,7 @@ public class ActivityDesktop extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         switch (itemId){
-            case R.id.menu_item_sync:
-                Toast.makeText(this, "Синхронизация", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_item_pref:
-                Toast.makeText(this, "Настройка", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_item_about:
-                Toast.makeText(this, "О программе", Toast.LENGTH_SHORT).show();
-                break;
+
             case R.id.menu_item_exit:
                 //Toast.makeText(this, "Выход", Toast.LENGTH_SHORT).show();
                 mAuth.getInstance().signOut();

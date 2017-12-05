@@ -14,10 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.vvv.manool.warehouse.ui.camera.CameraSource;
-import com.vvv.manool.warehouse.ui.camera.CameraSourcePreview;
-
-import com.vvv.manool.warehouse.ui.camera.GraphicOverlay;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -73,6 +69,7 @@ public class ActivityScanDesktop extends AppCompatActivity {
 
 
                     tvScanBarcode.setText(barcode.displayValue);
+
                     ref_skus.orderByChild("barcode").equalTo(barcode.displayValue).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -91,14 +88,6 @@ public class ActivityScanDesktop extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
-
-
-
-                    //Log.d(TAG, "Barcode read: " + barcode.displayValue);
                 } else {
                     tvScanBarcode.setText(R.string.barcode_failure);
                     //Log.d(TAG, "No barcode captured, intent data is null");
